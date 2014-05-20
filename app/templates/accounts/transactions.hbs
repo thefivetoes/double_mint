@@ -11,12 +11,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Mon March 15 2014</td>
-        <td>My Transaction</td>
-        <td></td>
-        <td>Amount</td>
-      </tr>
+      {{#each}}
+        <tr {{action startEditing controller}}>
+          <td>{{format-simple-date date}}</td>
+          <td>
+          {{if isEditing}}
+            {{focused-input value=description focus-out='stopEditing'}}
+          {{else}}
+            {{description}}
+          {{/if}}
+          </td>
+          <td></td>
+          <td>{{format-money amount}}</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 </div>
+
+{{outlet}}
