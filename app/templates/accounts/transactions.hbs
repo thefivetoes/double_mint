@@ -15,7 +15,7 @@
         <tr {{action startEditing controller}}>
           <td>{{format-simple-date date}}</td>
           <td>
-          {{if isEditing}}
+          {{#if isEditing}}
             {{focused-input value=description focus-out='stopEditing'}}
           {{else}}
             {{description}}
